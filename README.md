@@ -270,6 +270,9 @@ If you lose this file, you lose knowning the state of your infrastructure.
 
 `.terraform` directory contains binaries of terraform providers.
 
+
+When we used random provider and created a string resource from it we couldn't apply that string as name for s3 bucket as s3 bucket have some naming conventions. Then we fixed the string resource to follow the conventions of s3 bucket name.
+
 ## Issues with Terraform Cloud Login and Gitpod Workspace
 
 When attempting to run `terraform login` it will launch bash a wiswig view to generate a token. However it does not work expected in Gitpod VsCode in the browser.
