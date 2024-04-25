@@ -35,7 +35,7 @@ provider "random" {
 resource "random_string" "bucket_name" {
   lower = true
   upper = false
-  length   = 32
+  length   = 16
   special  = false
 }
 
@@ -49,22 +49,4 @@ resource "aws_s3_bucket" "example" {
 output "random_bucket_name" {
   value = random_string.bucket_name.result
 }
-
-
-
-
-
-terraform {
-  required_providers {
-    random = {
-      source = "hashicorp/random"
-      version = "3.6.1"
-    }
-    aws = {
-      source = "hashicorp/aws"
-      version = "5.46.0"
-    }
-  }
-}
-
 
