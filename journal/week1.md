@@ -59,7 +59,6 @@ We can set Terraform Cloud variables to be sensitive so they are not shown visib
 We can use the `-var` flag to set an input variable or override a variable in the tfvars file eg. `terraform -var user_ud="my-user_id"`
 
 ### var-file flag
-
 In Terraform, the var-file flag is used to specify a file containing input variables for your infrastructure configuration.
 e.g `terraform apply -var-file="variables.tfvars"`
 
@@ -82,6 +81,20 @@ Here's a sequential list of the order in which Terraform resolves variable value
 - Variable Files (terraform.tfvars, .auto.tfvars, or files passed via -var-file)
 - Explicitly Defined Values in Configuration Files (variable blocks)
 - Defaults within Configuration Files (default values specified within variable blocks)
+
+- TODO: document this flag
+
+### terraform.tvfars
+
+This is the default file to load in terraform variables in blunk
+
+### auto.tfvars
+
+- TODO: document this functionality for terraform cloud
+
+### order of terraform variables
+
+- TODO: document which terraform variables takes presendence.
 
 ## Dealing With Configuration Drift
 
@@ -293,4 +306,7 @@ For each allows us to enumerate over complex data types
 
 This is mostly useful when you are creating multiples of a cloud resource and you want to reduce the amount of repetitive terraform code.
 
+
 [For Each Expressions](https://developer.hashicorp.com/terraform/language/expressions/for)
+
+
