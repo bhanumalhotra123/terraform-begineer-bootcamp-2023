@@ -82,19 +82,23 @@ Here's a sequential list of the order in which Terraform resolves variable value
 - Explicitly Defined Values in Configuration Files (variable blocks)
 - Defaults within Configuration Files (default values specified within variable blocks)
 
-- TODO: document this flag
-
 ### terraform.tvfars
 
-This is the default file to load in terraform variables in blunk
+This is the default file to load in terraform variables in bulk
 
 ### auto.tfvars
 
-- TODO: document this functionality for terraform cloud
+`auto.tfvars` is a file used to automatically load Terraform variables without explicitly specifying them. When Terraform initializes, it automatically loads variables defined in this file if it exists in the working directory. It's useful for sensitive or environment-specific variables. For Terraform Cloud users, `auto.tfvars` can still be used similarly.
 
-### order of terraform variables
+### Order of Terraform Variables
 
-- TODO: document which terraform variables takes presendence.
+1. **Environment Variables**: Terraform checks for environment variables prefixed with `TF_VAR_`, overriding other variable definitions.
+
+2. **terraform.tfvars and *.tfvars Files**: Terraform loads variable values from files ending in `.tfvars` or `terraform.tfvars` in the current directory, including `auto.tfvars`.
+
+3. **Variable Definitions in Configuration Files**: Terraform processes variable definitions within configuration files, including those declared using the `variable` block or referenced directly within resource configurations.
+
+4. **Defaults and Inputs**: If a variable has a default value defined, Terraform uses it if no other value is provided. Terraform may prompt the user for input if a required variable is not provided by other methods.
 
 ## Dealing With Configuration Drift
 
@@ -102,7 +106,7 @@ This is the default file to load in terraform variables in blunk
 
 If you lose your statefile, you most likley have to tear down all your cloud infrastructure manually.
 
-You can use terraform port but it won't for all cloud resources. You need check the terraform providers documentation for which resources support import.
+You can use terraform import but it won't work for all cloud resources. You need check the terraform providers documentation for which resources support import.
 
 ### Fix Missing Resources with Terraform Import
 
