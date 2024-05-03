@@ -52,3 +52,14 @@ bundle exec ruby server.rb
 ```
 
 All of the code for our server is stored in the `server.rb` file.
+
+# CRUD Operations in Terraform Provider Resources
+
+Terraform Provider resources utilize CRUD operations, a fundamental concept in data management and API design. CRUD stands for Create, Read, Update, and Delete, representing the basic actions that can be performed on data.
+
+- **Create**: Allows the creation of new resources or entities in the system.
+- **Read**: Retrieves or reads existing resources from the system.
+- **Update**: Modifies or updates existing resources in the system.
+- **Delete**: Removes or deletes existing resources from the system.
+
+For more information about CRUD operations, you can refer to [Wikipedia](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete).
